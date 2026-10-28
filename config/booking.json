@@ -1,0 +1,14 @@
+{
+  "demo": true,
+  "timeZone": "Asia/Yekaterinburg",
+  "services": [
+    { "id": "haircut", "name": "Мужская стрижка", "durationMinutes": 45, "prices": [700, 900, 1100] },
+    { "id": "beard", "name": "Оформление бороды", "durationMinutes": 30, "prices": [400, 500, 600] },
+    { "id": "kids", "name": "Детская стрижка", "durationMinutes": 45, "prices": [700, 900, 1100] }
+  ],
+  "masters": [
+    { "id": "master-1", "name": "Демо-мастер 1", "category": "Мастер", "priceIndex": 0, "workDays": [0, 1, 2, 3, 4, 5, 6], "startTime": "10:00", "endTime": "22:00" },
+    { "id": "master-2", "name": "Демо-мастер 2", "category": "Старший мастер", "priceIndex": 1, "workDays": [0, 1, 2, 3, 4, 5, 6], "startTime": "10:00", "endTime": "22:00" },
+    { "id": "master-3", "name": "Демо-мастер 3", "category": "Топ-мастер", "priceIndex": 2, "workDays": [0, 1, 2, 3, 4, 5, 6], "startTime": "10:00", "endTime": "22:00" }
+  ]
+}

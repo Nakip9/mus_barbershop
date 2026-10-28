@@ -1,0 +1,10 @@
+node_modules
+.next
+.local
+.git
+.env*
+*.zip
+*.log
+*.tsbuildinfo
+.release-staging
+backups

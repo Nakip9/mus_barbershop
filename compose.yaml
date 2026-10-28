@@ -1,0 +1,32 @@
+name: mus
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    environment:
+      BOOKING_LIVE: ${BOOKING_LIVE:-false}
+      APP_ORIGIN: https://${SITE_DOMAIN:?Set SITE_DOMAIN in .env}
+      TRUST_PROXY: "true"
+    volumes:
+      - mus_data:/data
+      - ./config:/app/config:ro
+    expose:
+      - "3000"
+  proxy:
+    image: caddy:2
+    restart: unless-stopped
+    environment:
+      SITE_DOMAIN: ${SITE_DOMAIN:?Set SITE_DOMAIN in .env}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - web
+volumes:
+  mus_data:
+  caddy_data:
+  caddy_config:

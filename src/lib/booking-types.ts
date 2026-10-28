@@ -1,0 +1,9 @@
+export type BookingService = { id: string; name: string; durationMinutes: number; prices: number[] };
+export type BookingMaster = { id: string; name: string; category: string; priceIndex: number; workDays: number[]; startTime: string; endTime: string };
+export type BookingCatalog = { services: BookingService[]; masters: BookingMaster[]; timeZone: string; today: string; maxDate: string; demo: boolean; bookingOpen: boolean };
+export type BookingStatus = "confirmed" | "completed" | "cancelled";
+export type BookingReceipt = { reference: string; serviceName: string; masterName: string; date: string; time: string; endTime: string; price: number; status: BookingStatus };
+export type BookingRecord = BookingReceipt & { id: string; serviceId: string; masterId: string; name: string; phone: string; createdAt: string };
+export type ScheduleBlock = { id: string; masterId: string; date: string; startTime: string; endTime: string; note: string };
+export type StaffUser = { username: string; name: string; role: "admin" | "master"; masterId?: string };
+export type ScheduleResponse = { bookings: BookingRecord[]; blocks: ScheduleBlock[]; masters: BookingMaster[]; demo: boolean; user: StaffUser };
